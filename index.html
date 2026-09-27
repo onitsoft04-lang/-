@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모던 지뢰 찾기</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts 적용 (디자인 개선) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 게임 헤더 (제목 및 레벨 선택) -->
+        <header class="game-header">
+            <h1>지뢰 찾기</h1>
+            <div class="level-selector">
+                <button class="level-btn active" data-level="1">1레벨 (5x5)</button>
+                <button class="level-btn" data-level="2">2레벨 (9x9)</button>
+                <button class="level-btn" data-level="3">3레벨 (32x24)</button>
+            </div>
+        </header>
+
+        <!-- 게임 상태 표시 (남은 지뢰 수, 등등) -->
+        <div class="game-stats">
+            <div class="stat-box">
+                <span class="stat-label">남은 지뢰</span>
+                <span class="stat-value" id="mine-count">0</span>
+            </div>
+            <!-- 경과 시간 표시 영역 추가 -->
+            <div class="stat-box">
+                <span class="stat-label">시간</span>
+                <span class="stat-value" id="timer">0</span>
+            </div>
+            <!-- 게임 상태 (진행중, 승리, 패배 메시지 표시 영역) -->
+            <div class="status-message" id="status-message">게임을 시작하세요!</div>
+            <button id="restart-btn" class="restart-btn">다시 시작</button>
+        </div>
+
+        <!-- 게임 보드 (여기에 그리드가 동적으로 생성됩니다) -->
+        <div class="board-container">
+            <div id="game-board" class="board"></div>
+        </div>
+    </div>
+
+    <!-- 로직 스크립트 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>

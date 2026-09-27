@@ -1,0 +1,163 @@
+/* 기본 리셋 및 폰트 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 게임 전체 컨테이너 (유리 질감 스타일) */
+.game-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 95vw;
+}
+
+/* 헤더 및 레벨 선택 버튼 */
+.game-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: -webkit-linear-gradient(#00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.level-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.level-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.level-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.level-btn.active {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    box-shadow: 0 0 15px rgba(79, 172, 254, 0.4);
+}
+
+/* 상태 표시 영역 */
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.stat-box {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.status-message {
+    font-size: 1.1rem;
+    color: #a0a0b5;
+}
+
+/* 게임 보드 컨테이너 */
+.board-container {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 그리드 레이아웃 (JavaScript에서 동적으로 grid-template-columns 설정) */
+.board {
+    display: grid;
+    gap: 4px;
+}
+
+/* 개별 셀 스타일 */
+.cell {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.1), inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.cell:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* 열린 셀 스타일 */
+.cell.revealed {
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+/* 지뢰 스타일 */
+.cell.mine {
+    background: #ff4757;
+    box-shadow: 0 0 15px #ff4757;
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* 다시 시작 버튼 (상시 노출) */
+.restart-btn {
+    background: linear-gradient(45deg, #ff6b81, #ff4757);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 71, 87, 0.6);
+}
